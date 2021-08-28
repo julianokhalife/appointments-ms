@@ -1,0 +1,27 @@
+scalar Void
+
+type Appointment {
+  patient: String
+  note: String
+}
+
+input CreateAppointmentInput {
+  patient: String!
+  note: String!
+}
+
+input UpdateAppointmentInput {
+  id: String!
+  note: String!
+}
+
+type Query {
+  appointments: [Appointment]!
+  appointment(id: String!): Appointment
+}
+
+type Mutation {
+  createAppointment(createAppointmentInput: CreateAppointmentInput!): Appointment!
+  updateAppointment(updateAppointmentInput: UpdateAppointmentInput!): Appointment!
+  removeAppointment(id: String!): Void
+}
